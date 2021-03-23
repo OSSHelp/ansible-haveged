@@ -1,0 +1,1 @@
+DAEMON_ARGS="{% for arg in haveged_default_params if not (ansible_virtualization_type == 'lxc' and arg.key == 'w') %}-{{ arg.key }} {{ arg.value }} {% endfor %}{% for arg2 in haveged_custom_params if not (ansible_virtualization_type == 'lxc' and arg2.key == 'w') %}-{{ arg2.key }} {{ arg2.value }} {% endfor %}"

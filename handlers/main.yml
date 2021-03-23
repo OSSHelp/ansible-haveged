@@ -1,0 +1,4 @@
+---
+- name: reload haveged unit
+  systemd:
+    daemon_reload: yes

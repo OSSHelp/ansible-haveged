@@ -1,0 +1,12 @@
+---
+- name: install
+  include_tasks: install.yml
+  when: haveged_setup == "full" or haveged_setup == "install"
+
+- name: fix launch in container
+  import_tasks: fix_lxc_launch.yml
+  when: ansible_virtualization_type == 'lxc'
+
+- name: configure
+  import_tasks: configure.yml
+  when: haveged_setup == "full" or haveged_setup == "configure"

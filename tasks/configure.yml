@@ -1,0 +1,11 @@
+---
+- name: modify config
+  template:
+    src: haveged_conf.j2
+    dest: /etc/default/haveged
+
+- name: service enabled check
+  service:
+    name: haveged
+    enabled: true
+    state: started

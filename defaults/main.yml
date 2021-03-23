@@ -1,0 +1,6 @@
+---
+haveged_setup: full
+haveged_default_params:
+  - {key: "w", value: "1024"}
+  - {key: "p", value: "/var/run/haveged.pid"}
+haveged_custom_params: []

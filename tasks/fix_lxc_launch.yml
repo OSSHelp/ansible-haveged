@@ -1,0 +1,10 @@
+---
+- name: remove ConditionVirtualization from systemd unit
+  lineinfile:
+    dest: /lib/systemd/system/haveged.service
+    regexp: 'ConditionVirtualization=!container'
+    state: absent
+  notify: reload haveged unit
+
+- name: force systemd reload
+  meta: flush_handlers
